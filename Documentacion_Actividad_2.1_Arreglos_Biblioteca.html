@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Actividad 2.1 — Arreglos — Sistema de Administración de Biblioteca — Equipo 10</title>
+<style>
+  @page { margin: 18mm 16mm; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #222;
+    font-weight: normal;
+    text-align: justify;
+  }
+  .hoja {
+    max-width: 790px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 48px 72px;
+  }
+  /* Títulos */
+  h2, h3 {
+    font-family: Calibri, Arial, sans-serif;
+    color: #2E74B5;
+    font-weight: normal;
+    border: none;
+    margin-top: 28pt;
+    margin-bottom: 10pt;
+    text-align: left;
+  }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 13pt; }
+  p, li, td, th, div { font-weight: normal; }
+  a { color: #2E74B5; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  /* Portada */
+  .portada { text-align: center; padding-top: 24pt; padding-bottom: 18pt; }
+  .portada .uni {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 14pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #222;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .portada .uni2 {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 14pt;
+    color: #222;
+    margin: 2pt 0 18pt 0;
+    line-height: 1.4;
+  }
+  .portada .logo { margin: 10pt 0 18pt 0; }
+  .portada .campo {
+    font-size: 12pt;
+    line-height: 1.6;
+    margin: 6pt 0;
+  }
+  .portada .etiqueta { color: #222; }
+  .portada ul.nombres {
+    list-style: disc;
+    display: inline-block;
+    text-align: left;
+    margin: 6pt auto;
+    padding-left: 22pt;
+  }
+  .portada ul.nombres li { margin: 2pt 0; text-align: left; }
+  /* Índice */
+  .indice { margin: 18pt 0 22pt 0; }
+  .indice h2 { margin-top: 18pt; }
+  .indice ol { margin-left: 18pt; padding-left: 8pt; text-align: left; }
+  .indice ol li { margin: 3pt 0; text-align: left; }
+  .nota-impresion {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 9.5pt;
+    color: #666;
+    margin-top: 12pt;
+    text-align: left;
+    line-height: 1.4;
+  }
+  /* Tablas Word simple */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 10.5pt;
+    margin: 12pt 0 14pt 0;
+    border: 1px solid #999;
+  }
+  th, td {
+    padding: 6px 8px;
+    border: 1px solid #B4C6E7;
+    vertical-align: top;
+    text-align: left;
+    font-weight: normal;
+  }
+  th {
+    background: #D9E1F2;
+    color: #000;
+    border-color: #8EA9DB;
+    font-weight: normal;
+  }
+  /* Código */
+  .codigo {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 9.5pt;
+    color: #333;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background: none;
+    border: none;
+    margin: 10pt 0;
+    padding: 0;
+    line-height: 1.45;
+    text-align: left;
+  }
+  .nota, .pregunta { background: none; border: none; padding: 0; }
+  .pie-final {
+    text-align: center;
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 9pt;
+    color: #777;
+    margin-top: 28pt;
+    padding-top: 10pt;
+    border: none;
+  }
+  .tabla-titulo {
+    font-family: Calibri, Arial, sans-serif;
+    font-size: 10.5pt;
+    color: #2E74B5;
+    margin: 16pt 0 4pt 0;
+    text-align: left;
+  }
+  /* Impresión */
+  @media print {
+    @page { margin: 15mm; }
+    body { background: #fff; }
+    .hoja { padding: 0; box-shadow: none; max-width: none; }
+    a { color: #2E74B5; }
+  }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <!-- PORTADA -->
+  <div class="portada">
+    <p class="uni">Universidad de Guadalajara</p>
+    <p class="uni2">Centro Universitario de Tonalá</p>
+    <div class="logo">
+      <img src="udg_logo.png" alt="Logo Universidad de Guadalajara" width="210" style="max-width:210px; height:auto;">
+    </div>
+
+    <p class="campo"><span class="etiqueta">Tema:</span> Actividad 2.1: Arreglos — Manejo de Arreglos Estáticos</p>
+    <p class="campo"><span class="etiqueta">Materia:</span> Estructura de Datos — 2026B_IH060_ED</p>
+    <p class="campo"><span class="etiqueta">Problemática:</span> Sistema de Administración de Biblioteca — Equipo 10</p>
+    <p class="campo"><span class="etiqueta">Nombres de los integrantes:</span></p>
+    <ul class="nombres">
+      <li>Carmona Barbosa Geovani Gael</li>
+      <li>Espinoza López Manuel Ángel</li>
+      <li>Leyva Perez Victor Manuel</li>
+    </ul>
+    <p class="campo"><span class="etiqueta">Nombre del profesor:</span> Estructura de Datos — 2026B</p>
+    <p class="campo"><span class="etiqueta">Fecha:</span> Tonalá, Jalisco, a 13 de septiembre de 2026</p>
+  </div>
+
+  <!-- ÍNDICE -->
+  <div class="indice">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#s1">Descripción de la problemática</a></li>
+      <li><a href="#s2">Diagrama de clases</a></li>
+      <li><a href="#s3">Identificación de clases y atributos primarios</a></li>
+      <li><a href="#s4">Aplicación de la programación orientada a objetos</a></li>
+      <li><a href="#s5">Descripción de la interfaz gráfica</a></li>
+      <li><a href="#s6">Descripción de acciones</a></li>
+      <li><a href="#s7">Validaciones y manejo de excepciones</a></li>
+      <li><a href="#s8">Pruebas realizadas</a></li>
+      <li><a href="#s9">Reflexión</a></li>
+    </ol>
+    <p class="nota-impresion">Nota de impresión: si al imprimir aparece file:///C:/Users/.../archivo.html desactiva Encabezados y pies de página en Ctrl+P → Más opciones. Ese texto lo añade el navegador, no forma parte del documento. Usa también la opción Gráficos de fondo si deseas conservar los encabezados de tabla. Márgenes configurados: @page 18mm 16mm en pantalla y 15mm en impresión.</p>
+  </div>
+
+  <!-- s1 -->
+  <h2 id="s1">1. Descripción de la problemática</h2>
+  <p>La Actividad 2.1 — Arreglos solicita implementar un Sistema de Administración de Biblioteca que demuestre el uso correcto de arreglos estáticos en Java sin recurrir a colecciones dinámicas. El proyecto resuelve la gestión de una colección acotada de objetos Libro mediante un arreglo crudo Libro[] de tamaño fijo definido en tiempo de creación. A diferencia de la Actividad 1.3 (Constructores y Sobrecarga) y 1.4 (Herencia y Polimorfismo) centradas en taxis, aquí el dominio es bibliotecario: cada libro posee título, autor y año de publicación, y la biblioteca ofrece operaciones de ciclo de vida completo sobre posiciones indexadas.</p>
+  <p>El problema impone restricciones académicas explícitas: queda prohibido usar ArrayList, List, Map o cualquier colección del framework de Java. Toda la lógica debe resolverse con un arreglo, control manual de índices, verificación de capacidad y manejo de posiciones nulas para representar huecos. El sistema debe permitir crear y destruir la biblioteca, agregar un libro en un índice vacío, consultar el listado general y la consulta puntual por índice, modificar el contenido de una posición ocupada y eliminar un libro liberando su posición. Cada operación devuelve un mensaje descriptivo de éxito, información o error, y la interfaz gráfica debe validar entradas antes de delegar a la capa de negocio.</p>
+  <p>El alcance incluye dos capas: Back_end con las clases Libro y Biblioteca, y Front_end con la ventana Swing TestBiblioteca. La persistencia es en memoria y el arreglo no se redimensiona automáticamente; si el usuario intenta exceder la capacidad o acceder fuera de rango, el sistema informa el rango válido 0 – (capacidad-1). Esta problemática permite evaluar comprensión de declaración e inicialización de arreglos, recorrido con for, control de null, separación de responsabilidades entre modelo y vista, y validación defensiva en ambos niveles.</p>
+
+  <!-- s2 -->
+  <h2 id="s2">2. Diagrama de clases</h2>
+  <p>El diagrama se presenta en tablas estilo Word, sin arte ASCII. El proyecto contiene tres clases reales verificadas en src: Libro y Biblioteca en el paquete Back_end, y TestBiblioteca en Front_end. No existe herencia en esta actividad; la clase Persona abstracta mencionada en el formato general no aplica aquí, por lo que el diseño es plano y composicional: Biblioteca compone un arreglo de Libro, y TestBiblioteca compone una instancia de Biblioteca.</p>
+
+  <p class="tabla-titulo">Tabla 2.1 — Libro — Back_end.Libro</p>
+  <table>
+    <tr><th style="width:28%;">Elemento</th><th>Detalle</th></tr>
+    <tr><td>Atributos privados</td><td>String titulo; String autor; int anioPublicacion;</td></tr>
+    <tr><td>Constructores</td><td>Libro(String titulo, String autor, int anioPublicacion) — único constructor parametrizado que asigna los tres campos.</td></tr>
+    <tr><td>Métodos — acceso</td><td>getTitulo(): String; getAutor(): String; getAnioPublicacion(): int; setTitulo(String): void; setAutor(String): void; setAnioPublicacion(int): void;</td></tr>
+    <tr><td>Métodos — identidad</td><td>equals(Object obj): boolean — compara año exacto y título/autor ignorando mayúsculas; hashCode(): int — coherente con equals usando 31 y lowerCase; toString(): String — formato Libro{titulo='...', autor='...', anio=...}.</td></tr>
+  </table>
+
+  <p class="tabla-titulo">Tabla 2.2 — Biblioteca — Back_end.Biblioteca</p>
+  <table>
+    <tr><th style="width:28%;">Elemento</th><th>Detalle</th></tr>
+    <tr><td>Atributo privado</td><td>Libro[] libros — arreglo crudo que almacena referencias; null indica posición libre; null global indica biblioteca no creada/destruida.</td></tr>
+    <tr><td>Constructor</td><td>Biblioteca(int capacidad) — delega a crearBiblioteca(capacidad); valida capacidad &gt; 0.</td></tr>
+    <tr><td>Métodos de ciclo de vida</td><td>crearBiblioteca(int capacidad): String — inicializa o reinicializa el arreglo; destruirBiblioteca(): String — pone libros a null.</td></tr>
+    <tr><td>Métodos de consulta</td><td>mostrarLibros(): String — recorre el arreglo con for y concatena índices ocupados; mostrarLibroPorIndice(int indice): String — valida rango y null de posición.</td></tr>
+    <tr><td>Métodos de escritura</td><td>agregarLibro(Libro libro, int indice): String — inserta solo si la posición está libre; modificarLibro(int indice, Libro libro): String — reemplaza solo si hay libro previo; eliminarLibro(int indice): String — pone null en la posición.</td></tr>
+    <tr><td>Helper privado</td><td>indiceValido(int indice): boolean — retorna indice &gt;=0 &amp;&amp; indice &lt; libros.length; usado por todos los métodos que reciben índice.</td></tr>
+  </table>
+
+  <p class="tabla-titulo">Tabla 2.3 — TestBiblioteca — Front_end.TestBiblioteca extends JFrame</p>
+  <table>
+    <tr><th style="width:28%;">Elemento</th><th>Detalle</th></tr>
+    <tr><td>Atributos</td><td>Biblioteca biblioteca — instancia de negocio; JTextArea jTextAreaSalida — área de salida no editable; componentes generados: jTextField1 (título), jTextField2 (autor), jTextField3 (año), jTextField4 (índice), jTextField5 (capacidad / Nombre de la editorial), jPanel1..jPanel4, jTabbedPane4, jScrollPane1, jLabel1..jLabel6, jButton2, jButton9..jButton15; Logger logger.</td></tr>
+    <tr><td>Constructores</td><td>TestBiblioteca() — invoca initComponents(), inicializarAreaSalida() y registrarListeners().</td></tr>
+    <tr><td>Métodos de inicialización</td><td>inicializarAreaSalida(): void — crea JTextArea monospaced y lo asigna al viewport del scroll; registrarListeners(): void — enlaza ActionListeners de jButton9, jButton2, jButton10–jButton14.</td></tr>
+    <tr><td>Helpers de lectura</td><td>mostrar(String mensaje): void — escribe en el área; leerIndice(): int — Integer.parseInt de jTextField4; leerLibro(): Libro — valida campos no vacíos, año numérico entre 1 y 9999, retorna null y muestra error si falla.</td></tr>
+    <tr><td>Manejadores de botones</td><td>jButton9ActionPerformed — Crear biblioteca; jButton2ActionPerformed — Mostrar libros; jButton10ActionPerformed — Agregar libro; jButton11ActionPerformed — Modificar libro; jButton12ActionPerformed — Mostrar por índice; jButton13ActionPerformed — Eliminar libro; jButton14ActionPerformed — Destruir biblioteca; jButton15ActionPerformed — Salir (System.exit).</td></tr>
+    <tr><td>Punto de entrada</td><td>main(String[] args): void — fija LookAndFeel Nimbus y lanza la ventana en EventQueue.invokeLater.</td></tr>
+  </table>
+
+  <p class="tabla-titulo">Tabla 2.4 — Relaciones entre clases</p>
+  <table>
+    <tr><th style="width:28%;">Relación</th><th>Descripción</th></tr>
+    <tr><td>Biblioteca → Libro</td><td>Composición 1 a 0..capacidad. Biblioteca contiene Libro[]; cada posición puede ser null o una instancia Libro. No hay herencia.</td></tr>
+    <tr><td>TestBiblioteca → Biblioteca</td><td>Asociación 1 a 0..1. La ventana crea o recibe una Biblioteca; si es null muestra ERROR: La biblioteca no ha sido creada.</td></tr>
+    <tr><td>TestBiblioteca → Libro</td><td>Dependencia de creación. leerLibro() fabrica Libro con new Libro(titulo, autor, anio) y lo pasa a agregarLibro / modificarLibro.</td></tr>
+    <tr><td>Multiplicidad operativa</td><td>Un Libro pertenece a lo más a una posición del arreglo; varias posiciones nulas representan cupo disponible.</td></tr>
+  </table>
+
+  <p>Nota técnica: el diagrama original del formato general preveía seis clases para el sistema de taxis (Persona, Cliente, Conductor, etc.). En esta entrega 2.1 el diagrama real se reduce a tres clases porque la problemática de biblioteca con arreglos no requiere jerarquía de herencia; la descomposición en cuatro tablas cubre exhaustivamente la estructura verificada en código.</p>
+
+  <!-- s3 -->
+  <h2 id="s3">3. Identificación de clases y atributos primarios</h2>
+  <p>Se listan las clases con su paquete, atributos primarios, tipo y responsabilidad dentro del sistema de biblioteca con arreglo.</p>
+  <table>
+    <tr><th>Clase</th><th>Paquete</th><th>Atributo primario</th><th>Tipo</th><th>Responsabilidad</th></tr>
+    <tr><td>Libro</td><td>Back_end</td><td>titulo</td><td>String</td><td>Entidad de dominio que encapsula datos bibliográficos; base de igualdad por contenido.</td></tr>
+    <tr><td>Libro</td><td>Back_end</td><td>autor</td><td>String</td><td>Identifica la autoría; participa en equals/hashCode con comparación ignorando mayúsculas.</td></tr>
+    <tr><td>Libro</td><td>Back_end</td><td>anioPublicacion</td><td>int</td><td>Año de publicación entre 1 y 9999; validado en la vista antes de construir el objeto.</td></tr>
+    <tr><td>Biblioteca</td><td>Back_end</td><td>libros</td><td>Libro[]</td><td>Estructura central: arreglo de tamaño fijo que almacena la colección; gestiona capacidad, índices y mensajes de estado.</td></tr>
+    <tr><td>TestBiblioteca</td><td>Front_end</td><td>biblioteca</td><td>Biblioteca</td><td>Controla el ciclo de vida del negocio desde la GUI; delega operaciones y muestra resultados en JTextArea.</td></tr>
+    <tr><td>TestBiblioteca</td><td>Front_end</td><td>jTextAreaSalida</td><td>JTextArea</td><td>Salida monoespaciada no editable que presenta mensajes de éxito, info y error devueltos por Biblioteca.</td></tr>
+    <tr><td>TestBiblioteca</td><td>Front_end</td><td>jTextField1..jTextField5</td><td>JTextField</td><td>Campos de entrada para título, autor, año, índice y capacidad; origen de validaciones de formato y rango.</td></tr>
+  </table>
+  <p>Atributos heredados o transversales como imagen y estado, presentes en otras actividades, no existen en esta entrega; el modelo es minimalista y enfocado en el arreglo. La clave primaria lógica del libro es la combinación (titulo, autor, anioPublicacion) según el método equals; no hay identificador numérico autogenerado.</p>
+
+  <!-- s4 -->
+  <h2 id="s4">4. Aplicación de la programación orientada a objetos</h2>
+  <p><b>Encapsulamiento.</b> Libro declara sus tres campos como private y expone getters y setters públicos; Biblioteca oculta el arreglo libros como private y solo lo manipula mediante métodos públicos que devuelven String descriptivos. TestBiblioteca mantiene biblioteca y jTextAreaSalida como private y canaliza toda interacción a través de helpers mostrar(), leerIndice() y leerLibro().</p>
+  <p><b>Abstracción.</b> Biblioteca abstrae el manejo del arreglo crudo detrás de una API semántica (crear, agregar, mostrar, modificar, eliminar, destruir) de modo que la vista no manipula índices ni null directamente salvo para leer entradas. Libro abstrae la noción de igualdad bibliográfica con equals y hashCode coherentes.</p>
+  <p><b>Constructores.</b> Libro ofrece un único constructor parametrizado que exige los tres datos; Biblioteca ofrece Biblioteca(int capacidad) que inicializa el arreglo validando capacidad &gt; 0 y delegando a crearBiblioteca. No hay sobrecarga de constructores en esta actividad, a diferencia de la Actividad 1.3; la creación se complementa con la reinicialización mediante crearBiblioteca.</p>
+  <p><b>Herencia y polimorfismo.</b> Esta entrega no emplea herencia: no existe clase Persona abstracta ni métodos realizarAccion, calcularCosto u obtenerCategoria. La ausencia es intencional y corresponde al objetivo didáctico de dominar arreglos. Se mantiene polimorfismo por sobrescritura en Libro con equals, hashCode y toString sobre Object, y en JFrame con el ciclo de vida de la ventana.</p>
+  <p><b>Separación de capas.</b> Back_end no importa Swing; Front_end no contiene lógica de arreglo salvo validación de entrada. La comunicación se realiza mediante objetos Libro y cadenas de resultado, lo que desacopla modelo y vista.</p>
+  <div class="codigo">Libro libro = new Libro("Cien Años de Soledad", "Gabriel García Márquez", 1967);
+Biblioteca bib = new Biblioteca(5);
+bib.agregarLibro(libro, 0);          // inserta en posición 0
+bib.mostrarLibroPorIndice(0);        // consulta puntual
+bib.modificarLibro(0, nuevoLibro);    // reemplazo condicional</div>
+  <p>El fragmento ilustra la creación de objetos y la manipulación por índice, patrón central de la actividad.</p>
+
+  <!-- s5 -->
+  <h2 id="s5">5. Descripción de la interfaz gráfica</h2>
+  <p>La interfaz es una ventana Swing TestBiblioteca (JFrame) generada con el Form Editor de NetBeans, organizada en tres áreas visuales: encabezado, formulario de captura y panel de acciones con salida.</p>
+  <p>Encabezado: JLabel Biblioteca centrado con fuente Segoe UI 18pt, sin bordes ni fondos de color.</p>
+  <p>Formulario (JTabbedPane pestaña Libro): cuatro filas de etiqueta y campo de texto con GroupLayout. jLabel1 Título asociado a jTextField1, jLabel3 Autor a jTextField2, jLabel4 Año a jTextField3, jLabel5 índice a jTextField4. En la columna derecha, jLabel6 muestra el texto Nombre de la editorial vinculado a jTextField5; este campo se reutiliza para capturar la capacidad de la biblioteca en la operación Crear, por lo que su etiqueta es heredada del formulario original pero su función real es numérica.</p>
+  <p>Panel de acciones (jPanel2): dos filas de cuatro botones cada una. Primera fila: Crear biblioteca (jButton9), Mostrar libros (jButton2), Agregar libro (jButton10), Modificar libro (jButton11). Segunda fila: Mostrar por índice (jButton12), Eliminar libro (jButton13), Destruir biblioteca (jButton14), Salir (jButton15). Todos son JButton estándar sin iconos.</p>
+  <p>Área de salida: JScrollPane (jScrollPane1) que contiene un JTextArea (jTextAreaSalida) inyectado en tiempo de ejecución mediante setViewportView. El área es no editable, con lineWrap y wrapStyleWord activados y fuente Monospaced 12pt, lo que permite mostrar listados multilínea y mensajes de error de forma legible. El método inicializarAreaSalida() lo configura y registrarListeners() enlaza cada botón a su handler correspondiente.</p>
+  <p>Flujo visual: el usuario captura datos en los campos superiores y presiona un botón de acción; el resultado aparece en el área inferior. No se usan diálogos modales ni fondos destacados; la validación se comunica exclusivamente mediante texto en el área de salida.</p>
+
+  <!-- s6 -->
+  <h2 id="s6">6. Descripción de acciones</h2>
+  <p>Cada botón delega validaciones a la vista y reglas de negocio al modelo. Las validaciones de la vista preceden a la invocación de Biblioteca; si fallan, la operación no llega al modelo.</p>
+  <table>
+    <tr><th>Botón (JButton)</th><th>Comportamiento</th><th>Validación</th></tr>
+    <tr><td>Crear biblioteca — jButton9 — Capacidad en jTextField5</td><td>Si biblioteca es null crea new Biblioteca(capacidad); si ya existe invoca biblioteca.crearBiblioteca(capacidad) para reinicializar. Muestra Biblioteca creada con capacidad para N libro(s) o mensaje de error de capacidad.</td><td>Vista: capacidad no vacía, entero válido. Modelo: capacidad &gt; 0; si no, ERROR: La capacidad debe ser mayor que cero. Mensaje de rango no aplica.</td></tr>
+    <tr><td>Mostrar libros — jButton2</td><td>Invoca biblioteca.mostrarLibros(); lista con cabecera capacidad y líneas [i] Libro{...} para cada posición no null; si no hay ninguno muestra (Sin libros registrados).</td><td>Vista: biblioteca != null; si no, ERROR: La biblioteca no ha sido creada. Modelo: también verifica libros == null.</td></tr>
+    <tr><td>Agregar libro — jButton10 — Campos jTextField1..4</td><td>Construye Libro con leerLibro(); lee índice con leerIndice(); invoca biblioteca.agregarLibro(libro, indice). Inserta solo si la posición está libre.</td><td>Vista: título, autor, año no vacíos; año entero entre 1 y 9999; índice entero válido. Modelo: biblioteca creada, libro != null, índice en 0–(length-1), posición null; si está ocupada sugiere Modificar.</td></tr>
+    <tr><td>Modificar libro — jButton11</td><td>Lee índice y nuevo Libro; invoca biblioteca.modificarLibro(indice, libro). Reemplaza el contenido y reporta Anterior y Nuevo.</td><td>Vista: mismas validaciones de libro e índice. Modelo: posición debe estar ocupada; si es null, ERROR: Use Agregar para insertar uno nuevo.</td></tr>
+    <tr><td>Mostrar por índice — jButton12</td><td>Invoca biblioteca.mostrarLibroPorIndice(indice); devuelve Índice [i]: Libro{...} o INFO si está vacío.</td><td>Vista: índice entero válido. Modelo: rango válido y verificación de null en la posición.</td></tr>
+    <tr><td>Eliminar libro — jButton13</td><td>Invoca biblioteca.eliminarLibro(indice); pone null en la posición y retorna Libro eliminado del índice i: ...</td><td>Vista: índice entero válido. Modelo: rango válido; si la posición ya es null retorna INFO: No hay libro para eliminar.</td></tr>
+    <tr><td>Destruir biblioteca — jButton14</td><td>Invoca biblioteca.destruirBiblioteca(); pone libros a null y la referencia local a null en la vista. Todas las operaciones posteriores fallan hasta recrear.</td><td>Vista: biblioteca != null. Modelo: verifica libros != null; si ya estaba destruida retorna ERROR correspondiente.</td></tr>
+    <tr><td>Salir — jButton15</td><td>Ejecuta System.exit(0) sin validación ni persistencia.</td><td>Sin validación.</td></tr>
+  </table>
+  <p>La operación Buscar genérica del formato general se especializa aquí en dos consultas: Mostrar libros (recorrido completo del arreglo) y Mostrar por índice (acceso directo O(1) por posición). La Demo Polimorfismo de otras actividades no aplica por ausencia de jerarquía; en su lugar la demostración de arreglo se concentra en cómo null modela huecos y cómo el índice determina validez y colisiones.</p>
+
+  <!-- s7 -->
+  <h2 id="s7">7. Validaciones y manejo de excepciones</h2>
+  <p>Las validaciones se dividen entre vista (Front_end) con mensajes inmediatos en el área de salida, y modelo (Back_end) con mensajes de retorno. Las excepciones de formato numérico se capturan con try-catch de NumberFormatException.</p>
+  <table>
+    <tr><th>Validación</th><th>Mensaje mostrado</th><th>Ubicación</th></tr>
+    <tr><td>Título vacío</td><td>ERROR: El campo Título no puede estar vacío.</td><td>TestBiblioteca.leerLibro() — antes de construir Libro</td></tr>
+    <tr><td>Autor vacío</td><td>ERROR: El campo Autor no puede estar vacío.</td><td>TestBiblioteca.leerLibro()</td></tr>
+    <tr><td>Año vacío / no numérico</td><td>ERROR: El campo Año no puede estar vacío. / ERROR: El Año debe ser un número entero válido.</td><td>TestBiblioteca.leerLibro() — try Integer.parseInt(anioTxt)</td></tr>
+    <tr><td>Año fuera de rango</td><td>ERROR: El Año debe estar entre 1 y 9999.</td><td>TestBiblioteca.leerLibro()</td></tr>
+    <tr><td>Capacidad vacía / no numérica</td><td>ERROR: Ingrese la capacidad... en el campo 'Nombre de la editorial'. / ERROR: La capacidad debe ser un número entero válido.</td><td>TestBiblioteca.jButton9ActionPerformed() — try parseInt(jTextField5)</td></tr>
+    <tr><td>Capacidad &lt;= 0</td><td>ERROR: La capacidad debe ser mayor que cero.</td><td>Biblioteca.crearBiblioteca(int)</td></tr>
+    <tr><td>Índice no numérico</td><td>ERROR: El Índice debe ser un número entero válido.</td><td>TestBiblioteca leerIndice() — catch NumberFormatException en cada handler</td></tr>
+    <tr><td>Índice fuera de rango</td><td>ERROR: Índice fuera de rango. Rango válido: 0 – (capacidad-1).</td><td>Biblioteca.indiceValido() — usado por agregar, mostrar, modificar, eliminar</td></tr>
+    <tr><td>Biblioteca no creada</td><td>ERROR: La biblioteca no ha sido creada.</td><td>Todos los handlers de TestBiblioteca y métodos de Biblioteca cuando libros == null</td></tr>
+    <tr><td>Agregar en posición ocupada</td><td>ERROR: Ya existe un libro en el índice N. Use 'Modificar' para reemplazarlo.</td><td>Biblioteca.agregarLibro()</td></tr>
+    <tr><td>Modificar posición vacía</td><td>ERROR: No existe libro en el índice N. Use 'Agregar' para insertar uno nuevo.</td><td>Biblioteca.modificarLibro()</td></tr>
+    <tr><td>Libro nulo</td><td>ERROR: El libro no puede ser nulo. / ERROR: El libro nuevo no puede ser nulo.</td><td>Biblioteca.agregarLibro() y modificarLibro() — defensa contra null</td></tr>
+    <tr><td>Libro inexistente al mostrar/eliminar</td><td>INFO: No hay libro en el índice N. / INFO: No hay libro en el índice N para eliminar.</td><td>Biblioteca.mostrarLibroPorIndice() y eliminarLibro()</td></tr>
+    <tr><td>Destruir sin biblioteca</td><td>ERROR: La biblioteca ya estaba destruida o nunca fue creada. / ERROR: La biblioteca no ha sido creada.</td><td>Biblioteca.destruirBiblioteca() y handler jButton14</td></tr>
+  </table>
+  <p>El modelo no lanza IllegalArgumentException; en su lugar retorna cadenas con prefijo ERROR o INFO, lo que simplifica la presentación en la GUI. La vista captura NumberFormatException para campos numéricos y valida cadenas con trim().isEmpty(), evitando que datos inválidos lleguen al constructor de Libro.</p>
+
+  <!-- s8 -->
+  <h2 id="s8">8. Pruebas realizadas</h2>
+  <p>Se ejecutaron pruebas funcionales manuales sobre la aplicación en NetBeans, verificando cada rama de validación y el comportamiento del arreglo.</p>
+  <table>
+    <tr><th>#</th><th>Prueba</th><th>Entrada</th><th>Resultado esperado</th><th>Resultado obtenido</th></tr>
+    <tr><td>1</td><td>Crear biblioteca con capacidad inválida</td><td>Capacidad = 0, luego -3</td><td>ERROR: La capacidad debe ser mayor que cero.</td><td>Coincide; el arreglo no se inicializa.</td></tr>
+    <tr><td>2</td><td>Crear biblioteca válida</td><td>Capacidad = 5</td><td>Biblioteca creada con capacidad para 5 libro(s).</td><td>Coincide; libros.length = 5.</td></tr>
+    <tr><td>3</td><td>Mostrar libros con biblioteca vacía</td><td>Mostrar libros tras crear</td><td>Listado con (Sin libros registrados)</td><td>Coincide.</td></tr>
+    <tr><td>4</td><td>Agregar libro en índice válido libre</td><td>Título=Don Quijote, Autor=Cervantes, Año=1605, Índice=0</td><td>Libro agregado en el índice 0: Libro{titulo='Don Quijote', ...}</td><td>Coincide; posición 0 ocupada.</td></tr>
+    <tr><td>5</td><td>Agregar en índice ocupado</td><td>Mismo índice 0 con otro libro</td><td>ERROR: Ya existe un libro en el índice 0. Use 'Modificar'...</td><td>Coincide; no se sobrescribe.</td></tr>
+    <tr><td>6</td><td>Agregar con índice fuera de rango</td><td>Índice=5 en capacidad 5 (válido 0–4)</td><td>ERROR: Índice fuera de rango. Rango válido: 0 – 4.</td><td>Coincide.</td></tr>
+    <tr><td>7</td><td>Mostrar por índice existente y vacío</td><td>Índice 0 y luego índice 1</td><td>Índice [0]: Libro{...} / INFO: No hay libro en el índice 1.</td><td>Coincide.</td></tr>
+    <tr><td>8</td><td>Modificar libro existente</td><td>Índice 0, nuevo título=Don Quijote II, Año=1615</td><td>Libro modificado en índice 0. Anterior: ... Nuevo: ...</td><td>Coincide; se reemplaza referencia.</td></tr>
+    <tr><td>9</td><td>Validación de año y campos vacíos</td><td>Año=abc; Título vacío; Año=0</td><td>ERROR: El Año debe ser un número entero válido. / Título no puede estar vacío. / Año entre 1 y 9999.</td><td>Coincide; leerLibro() bloquea la creación.</td></tr>
+    <tr><td>10</td><td>Eliminar y destruir</td><td>Eliminar índice 0, Mostrar por índice 0, Destruir biblioteca, Mostrar libros</td><td>Libro eliminado... / INFO: No hay libro... / Biblioteca destruida... / ERROR: La biblioteca no ha sido creada.</td><td>Coincide; tras destruir libros == null y handlers rechazan operaciones.</td></tr>
+  </table>
+  <p>Pruebas adicionales incluyeron agregar varios libros en índices no consecutivos (0 y 3) y verificar que mostrarLibros lista solo posiciones ocupadas con huecos intermedios nulos, confirmando que el arreglo modela correctamente la capacidad fija sin compactación automática.</p>
+
+  <!-- s9 -->
+  <h2 id="s9">9. Reflexión</h2>
+
+  <h3>¿Qué aprendimos sobre el uso de arreglos estáticos frente a colecciones dinámicas?</h3>
+  <p>Comprendimos que un arreglo crudo Libro[] obliga a gestionar manualmente capacidad, índices y huecos con null, a diferencia de ArrayList que redimensiona y desplaza automáticamente. Trabajar con longitud fija evidenció la importancia de validar rango 0–(length-1) y de distinguir entre biblioteca no creada (arreglo null) y biblioteca vacía (arreglo con todo null). También observamos el costo de recorrido lineal para listar y la ventaja de acceso directo O(1) por índice, así como la necesidad de mensajes claros cuando una posición está ocupada o vacía, ya que no existe el concepto de add automático.</p>
+
+  <h3>¿Qué dificultades surgieron al prohibir ArrayList y cómo se resolvieron?</h3>
+  <p>La falta de métodos add, remove y size dinámico exigió implementar crearBiblioteca para inicializar y reinicializar, y usar null como marcador de disponibilidad. La inserción en índice ocupado se resolvió rechazando la operación y sugiriendo Modificar, mientras que la eliminación se limitó a poner null sin recorrer el arreglo. El control de errores por capacidad y por índice fuera de rango se centralizó en indiceValido y en mensajes con el rango válido, lo que evitó ArrayIndexOutOfBoundsException y mantuvo la lógica sin excepciones no controladas.</p>
+
+  <h3>¿Cómo contribuyó la separación entre Back_end y Front_end a la calidad del código?</h3>
+  <p>Separar Libro y Biblioteca de TestBiblioteca permitió que el modelo fuese testeable sin interfaz y que la vista se limitara a validar entradas y mostrar resultados. Back_end no depende de Swing y retorna cadenas descriptivas, por lo que podría reutilizarse con otra vista; Front_end concentra parseos, validaciones de vacío y captura de NumberFormatException antes de invocar al modelo. Esta división redujo el acoplamiento, facilitó la lectura del código y evitó duplicar lógica de negocio en los handlers de los botones.</p>
+
+  <h3>¿Qué papel juegan equals, hashCode y toString en la entidad Libro?</h3>
+  <p>Aunque la actividad no exige colecciones con hashing, sobrescribir equals con comparación ignorando mayúsculas y año exacto define la identidad bibliográfica y prepara el modelo para búsquedas futuras por contenido. hashCode coherente con esa definición garantiza contrato con equals, y toString con formato Libro{titulo='...', autor='...', anio=...} aporta una representación legible que usa directamente mostrarLibros y mostrarLibroPorIndice para presentar resultados en el área de salida.</p>
+
+  <h3>¿Qué mejoraríamos en una versión futura del sistema?</h3>
+  <p>Propondríamos agregar búsqueda por título o autor con recorrido filtrado, validación de año con rango histórico más realista y persistencia en archivo. En la interfaz, renombrar jTextField5 y jLabel6 de Nombre de la editorial a Capacidad evitaría confusión, y añadir confirmación al destruir la biblioteca preveniría pérdidas accidentales. También contemplaríamos ordenar el listado por título o año y mostrar la ocupación como 2/5 libros, manteniendo el arreglo pero enriqueciendo la experiencia sin recurrir a colecciones dinámicas.</p>
+
+  <div class="pie-final">
+    Documentación generada a partir de src/Back_end/Libro.java, src/Back_end/Biblioteca.java y src/Front_end/TestBiblioteca.java — Actividad 2.1 Arreglos — Estructura de Datos 2026B — Equipo 10 — Tonalá, Jalisco
+  </div>
+
+</div>
+</body>
+</html>

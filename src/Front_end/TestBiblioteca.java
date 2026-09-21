@@ -371,7 +371,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
 
         jTextField4.addActionListener(this::jTextField4ActionPerformed);
 
-        jLabel6.setText("Nombre de la editorial");
+        jLabel6.setText("Cantidad de libros");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
