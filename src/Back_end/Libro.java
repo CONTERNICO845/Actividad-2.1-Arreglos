@@ -1,24 +1,24 @@
 package Back_end;
 
-/**
- * Clase que representa un Libro en la biblioteca.
- * Actividad 2.1 - Arreglos
+/*Victor Manuel Leyva Perez
+  Geovani Gael Carmona Barbosa
+  Manuel Angel Espinoza Lopez
  */
 public class Libro {
 
-    // ── Atributos privados ──────────────────────────────────────────────────
+   
     private String titulo;
     private String autor;
     private int    anioPublicacion;
 
-    // ── Constructor con parámetros ──────────────────────────────────────────
+    
     public Libro(String titulo, String autor, int anioPublicacion) {
         this.titulo          = titulo;
         this.autor           = autor;
         this.anioPublicacion = anioPublicacion;
     }
 
-    // ── Getters ─────────────────────────────────────────────────────────────
+    
     public String getTitulo() {
         return titulo;
     }
@@ -31,7 +31,7 @@ public class Libro {
         return anioPublicacion;
     }
 
-    // ── Setters ─────────────────────────────────────────────────────────────
+    
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
@@ -44,7 +44,7 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
     }
 
-    // ── equals ──────────────────────────────────────────────────────────────
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -59,7 +59,7 @@ public class Libro {
                 && autor.equalsIgnoreCase(otro.autor);
     }
 
-    // ── hashCode ─────────────────────────────────────────────────────────────
+    
     @Override
     public int hashCode() {
         int resultado = 17;
@@ -69,7 +69,7 @@ public class Libro {
         return resultado;
     }
 
-    // ── toString ─────────────────────────────────────────────────────────────
+    
     @Override
     public String toString() {
         return "Libro{"

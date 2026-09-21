@@ -1,36 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Front_end;
 
 import Back_end.Biblioteca;
 import Back_end.Libro;
 
-/**
- *
- * @author VictorL
+/*Victor Manuel Leyva Perez
+  Geovani Gael Carmona Barbosa
+  Manuel Angel Espinoza Lopez
  */
 public class TestBiblioteca extends javax.swing.JFrame {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TestBiblioteca.class.getName());
 
-    // ── Instancia de negocio ────────────────────────────────────────────────
+    
     private Biblioteca biblioteca;
 
-    // ── Área de salida (se añade al jPanel3 / jScrollPane1) ─────────────────
+    
     private javax.swing.JTextArea jTextAreaSalida;
 
-    /**
-     * Creates new form TestBiblioteca
-     */
+    
     public TestBiblioteca() {
         initComponents();
         inicializarAreaSalida();
         registrarListeners();
     }
 
-    // ── Configuración del JTextArea de salida ───────────────────────────────
+    
     private void inicializarAreaSalida() {
         jTextAreaSalida = new javax.swing.JTextArea();
         jTextAreaSalida.setEditable(false);
@@ -38,11 +32,11 @@ public class TestBiblioteca extends javax.swing.JFrame {
         jTextAreaSalida.setWrapStyleWord(true);
         jTextAreaSalida.setFont(new java.awt.Font("Monospaced", java.awt.Font.PLAIN, 12));
 
-        // Reemplazar el viewport del scroll existente
+        
         jScrollPane1.setViewportView(jTextAreaSalida);
     }
 
-    // ── Registro de ActionListeners en los botones ──────────────────────────
+    
     private void registrarListeners() {
         jButton9.addActionListener(this::jButton9ActionPerformed);   // Crear biblioteca
         jButton2.addActionListener(this::jButton2ActionPerformed);   // Mostrar libros
@@ -53,26 +47,17 @@ public class TestBiblioteca extends javax.swing.JFrame {
         jButton14.addActionListener(this::jButton14ActionPerformed); // Destruir biblioteca
     }
 
-    // ── Helpers ──────────────────────────────────────────────────────────────
-
-    /** Muestra un mensaje en el área de salida. */
+    
     private void mostrar(String mensaje) {
         jTextAreaSalida.setText(mensaje);
     }
 
-    /**
-     * Lee y valida el índice del jTextField4.
-     * Lanza NumberFormatException si no es entero.
-     */
+    
     private int leerIndice() {
         return Integer.parseInt(jTextField4.getText().trim());
     }
 
-    /**
-     * Construye un Libro a partir de los campos jTextField1/2/3.
-     * Retorna null y muestra error si algún campo obligatorio está vacío
-     * o el año no es numérico.
-     */
+    
     private Libro leerLibro() {
         String titulo = jTextField1.getText().trim();
         String autor  = jTextField2.getText().trim();
@@ -107,11 +92,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         return new Libro(titulo, autor, anio);
     }
 
-    // ══════════════════════════════════════════════════════════════════════
-    //  Lógica de botones
-    // ══════════════════════════════════════════════════════════════════════
-
-    /** jButton9 – Crear biblioteca */
+    
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {
         String capacidadTxt = jTextField5.getText().trim();
 
@@ -132,13 +113,13 @@ public class TestBiblioteca extends javax.swing.JFrame {
             biblioteca = new Biblioteca(capacidad);
             mostrar("Biblioteca creada con capacidad para " + capacidad + " libro(s).");
         } else {
-            // Reinicializar biblioteca existente
+            
             String resultado = biblioteca.crearBiblioteca(capacidad);
             mostrar(resultado);
         }
     }
 
-    /** jButton2 – Mostrar libros */
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
@@ -147,7 +128,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         mostrar(biblioteca.mostrarLibros());
     }
 
-    /** jButton10 – Agregar libro */
+    
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
@@ -155,7 +136,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         }
 
         Libro libro = leerLibro();
-        if (libro == null) return; // leerLibro ya mostró el error
+        if (libro == null) return; 
 
         int indice;
         try {
@@ -168,7 +149,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         mostrar(biblioteca.agregarLibro(libro, indice));
     }
 
-    /** jButton11 – Modificar libro */
+    
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
@@ -189,7 +170,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         mostrar(biblioteca.modificarLibro(indice, libro));
     }
 
-    /** jButton12 – Mostrar por índice */
+    
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
@@ -207,7 +188,7 @@ public class TestBiblioteca extends javax.swing.JFrame {
         mostrar(biblioteca.mostrarLibroPorIndice(indice));
     }
 
-    /** jButton13 – Eliminar libro */
+   
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
@@ -225,14 +206,14 @@ public class TestBiblioteca extends javax.swing.JFrame {
         mostrar(biblioteca.eliminarLibro(indice));
     }
 
-    /** jButton14 – Destruir biblioteca */
+    
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {
         if (biblioteca == null) {
             mostrar("ERROR: La biblioteca no ha sido creada.");
             return;
         }
         String resultado = biblioteca.destruirBiblioteca();
-        biblioteca = null; // referencia local también a null
+        biblioteca = null; 
         mostrar(resultado);
     }
 
